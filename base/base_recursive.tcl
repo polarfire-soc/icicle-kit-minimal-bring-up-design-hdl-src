@@ -5,6 +5,5 @@ source hdl_source.tcl
 build_design_hierarchy
 
 #Sourcing the Tcl files for creating individual components under the top level
-source components/PF_OSC_C0.tcl 
 source components/base.tcl 
 build_design_hierarchy

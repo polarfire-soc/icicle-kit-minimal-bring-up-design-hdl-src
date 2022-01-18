@@ -18,7 +18,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {CS} -port_direction {OUT} 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_0_TXD_M2F} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_1_TXD_M2F} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {ODT} -port_direction {OUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RCOSC_160MHZ_GL} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {RESET_N} -port_direction {OUT} -port_is_pad {1}
 
 
@@ -29,11 +28,6 @@ sd_create_bus_port -sd_name ${sd_name} -port_name {DM} -port_direction {OUT} -po
 sd_create_bus_port -sd_name ${sd_name} -port_name {DQS_N} -port_direction {INOUT} -port_range {[3:0]} -port_is_pad {1}
 sd_create_bus_port -sd_name ${sd_name} -port_name {DQS} -port_direction {INOUT} -port_range {[3:0]} -port_is_pad {1}
 sd_create_bus_port -sd_name ${sd_name} -port_name {DQ} -port_direction {INOUT} -port_range {[31:0]} -port_is_pad {1}
-
-# Add PF_OSC_C0_0 instance
-sd_instantiate_component -sd_name ${sd_name} -component_name {PF_OSC_C0} -instance_name {PF_OSC_C0_0}
-
-
 
 # Add test_mss_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {test_mss} -instance_name {test_mss_0}
@@ -54,7 +48,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"MMUART_0_TXD_M2F" "test_mss_0:M
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MMUART_1_RXD_F2M" "test_mss_0:MMUART_1_RXD_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MMUART_1_TXD_M2F" "test_mss_0:MMUART_1_TXD_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ODT" "test_mss_0:ODT" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_OSC_C0_0:RCOSC_160MHZ_NGMUX" "RCOSC_160MHZ_GL" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REFCLK" "test_mss_0:REFCLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REFCLK_N" "test_mss_0:REFCLK_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_N" "test_mss_0:RESET_N" }
